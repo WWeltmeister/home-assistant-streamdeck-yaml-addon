@@ -6,26 +6,26 @@ FROM python:3.14-alpine3.21 as python-build
 # Install dependencies
 RUN apk --no-cache add \
     # Stream Deck dependencies
-    libusb=1.0.27-r0 \
-    libusb-dev=1.0.27-r0 \
-    hidapi-dev=0.14.0-r0 \
-    libffi-dev=3.4.7-r0 \
+    libusb \
+    libusb-dev \
+    hidapi-dev \
+    libffi-dev \
     # Needed for cairosvg
-    cairo-dev=1.18.4-r0 \
+    cairo-dev \
     # Needed for lxml
     libxml2-dev \
-    libxslt-dev=1.1.42-r2 \
+    libxslt-dev \
     # Needed for Pillow
-    jpeg-dev=9f-r0 \
-    zlib-dev=1.3.1-r2 \
-    freetype-dev=2.13.3-r0 \
-    libpng-dev=1.6.47-r0 \
+    jpeg-dev \
+    zlib-dev \
+    freetype-dev \
+    libpng-dev \
     # Needed for pip install
     && apk add --no-cache --virtual build-deps \
     # General
-    gcc=14.2.0-r4 \
+    gcc \
     python3-dev \
-    musl-dev=1.2.5-r9
+    musl-dev
 
 # Download and unzip the repository
 ARG VERSION=2025.7.0
@@ -34,7 +34,7 @@ RUN apk --no-cache --virtual .download-deps add \
     unzip=6.0-r15 \
     wget=1.25.0-r0 && \
     echo "Downloading version ${VERSION}..." && \
-    wget -nv https://github.com/WWeltmeister/home-assistant-streamdeck-yaml/archive/refs/tags/v${VERSION}.zip -O v${VERSION}.zip && \
+    wget -nv https://github.com/basnijholt/home-assistant-streamdeck-yaml/archive/refs/tags/v${VERSION}.zip -O v${VERSION}.zip && \
     echo "Unzipping..." && \
     unzip v${VERSION}.zip && \
     echo "Moving files..." && \
@@ -73,13 +73,13 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="ww <ww@tag.nl>" \
+    maintainer="Bas Nijholt <bas@nijho.lt>" \
     org.label-schema.description="home-assistant-streamdeck-yaml add-on" \
     org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.name="home-assistant-streamdeck-yaml" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="https://addons.community" \
-    org.label-schema.usage="https://github.com/WWeltmeister/home-assistant-streamdeck-yaml-addon/tree/main/README.md" \
+    org.label-schema.usage="https://github.com/basnijholt/home-assistant-streamdeck-yaml-addon/tree/main/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/WWeltmeister/home-assistant-streamdeck-yaml-addon" \
-    org.label-schema.vendor="ww"
+    org.label-schema.vcs-url="https://github.com/basnijholt/home-assistant-streamdeck-yaml-addon" \
+    org.label-schema.vendor="Bas Nijholt"
