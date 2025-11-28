@@ -28,7 +28,7 @@ RUN apk --no-cache add \
     musl-dev=1.2.5-r9
 
 # Download and unzip the repository
-ARG VERSION=2025.7.0
+ARG VERSION=2025.7.2
 # hadolint ignore=SC2034
 RUN apk --no-cache --virtual .download-deps add \
     unzip=6.0-r15 \
@@ -73,13 +73,13 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Bas Nijholt <bas@nijho.lt>" \
+    maintainer="ww <ww@tag.nl>" \
     org.label-schema.description="home-assistant-streamdeck-yaml add-on" \
     org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.name="home-assistant-streamdeck-yaml" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="https://addons.community" \
-    org.label-schema.usage="https://github.com/basnijholt/home-assistant-streamdeck-yaml-addon/tree/main/README.md" \
+    org.label-schema.usage="https://github.com/WWeltmeister/home-assistant-streamdeck-yaml-addon/tree/main/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/basnijholt/home-assistant-streamdeck-yaml-addon" \
-    org.label-schema.vendor="Bas Nijholt"
+    org.label-schema.vcs-url="https://github.com/WWeltmeister/home-assistant-streamdeck-yaml-addon" \
+    org.label-schema.vendor="ww"
