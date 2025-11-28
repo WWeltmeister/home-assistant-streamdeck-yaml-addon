@@ -34,7 +34,7 @@ RUN apk --no-cache --virtual .download-deps add \
     unzip=6.0-r15 \
     wget=1.25.0-r0 && \
     echo "Downloading version ${VERSION}..." && \
-    wget -nv https://github.com/basnijholt/home-assistant-streamdeck-yaml/archive/refs/tags/v${VERSION}.zip -O v${VERSION}.zip && \
+    wget -nv https://github.com/WWeltmeister/home-assistant-streamdeck-yaml/archive/refs/tags/v${VERSION}.zip -O v${VERSION}.zip && \
     echo "Unzipping..." && \
     unzip v${VERSION}.zip && \
     echo "Moving files..." && \
